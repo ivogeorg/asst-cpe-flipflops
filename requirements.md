@@ -1,90 +1,43 @@
 # CPE 1040 - Spring 2020
 
-## Assignment 5: Transistors
+## Assignment 6: Flip-flops
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-02-23  
-Code: 98ffb5e9c5964e27028001933faec10caa0e4709  
+Last updated: 2020-03-04
+Code:   
 
-This is assignment 5 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
+This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 ### Overview
 
-This assignment introduces transistors and electrical circuits that employ them. _Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
+This assignment introduces flip-flops, how they are built, and what circuits can be built from them. Flip-flops (aka latches) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. _Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
 
 #### Requirements
 
-![alt text](images/npn-pnp-circuits.jpg "Simple Circuits with NPN and PNP Transistors")
+##### 1. Capacitors
 
-##### 1. NPN transistor circuit
+1. Simple charge-discharge capacitor circuit (as warm up for D flip-flop operation)...
 
-1. Pick a [2N3904](https://www.sparkfun.com/datasheets/Components/2N3904.pdf) transistor and build the npn circuit on the left. 
-2. For a switch, use one of the workstation switches on the left of the breadboard area. Make sure they are in the CMOS (that is 5V) mode. _Hint: The switch is already connected to 5V and 0V and toggles between them. You only need to bring a wire from it to the base resistor._ (UPDATE: This is not true. The switches are 1V when on, which is insufficient for the setup in the circuit sketch. See the [asst 5 errata](asst5-errata.md#item-12) for details.)
-3. With the switch off, measure the voltages:
-   1. Accross the resistor R<sub>C</sub>.
-   2. At the collector (C).
-   3. At the base (B).
-   4. At the emitter (E).
-   5. Record these voltages in the README.
-4. With the switch off, measure the currents:
-   1. The collector current I<sub>C</sub>.
-   2. The emitter current I<sub>E</sub>.
-   3. The base current I<sub>B</sub>. _If this current is not zero, you are doing something wrong :)_ (UPDATE: This holds _only_ for the case when the switch is off, not in the case when you are repeating these measurements with the switch on. See the [asst 5 errata](asst5-errata.md#item-14) for details.)
-   4. Record these currents in the README. Does any current flow?
-5. Turn the switch on and repeat the measurements in (3) and (4), recording them in the README.
-6. What can you say about the relationship among the three currents I<sub>C</sub>, I<sub>E</sub>, and I<sub>B</sub>?
-7. The npn transistor is a _current amplifier_. What is the amplification coefficient in your circtuit? _Hint: Consider the ratio I<sub>C</sub>/I<sub>B</sub>._
-7. Now that you are familiar with the curcuit, close everything and draw it. Take a picture and embed your drawing in your README writeup.
+##### 2. Modulus counters
 
-##### 2. PNP transistor circuit
+1. **TODO** Pick D flip-flops
+2. Build a modulus counter from D flip-flops...
 
-1. Pick a [2N3906](https://www.sparkfun.com/datasheets/Components/2N3906.pdf) transistor and build the circuit on the right. _Does the LED light up when the switch is on or off? Explain._
-2. Repeat all the measurements from part (1) with the pnp circuit, and include in the README writeup. (UPDATE: If your LED still glows when it should be off, see the [asst 5 errata](asst5-errata.md#item-22) for a solution.)
-3. Answer the current questions from part (1), with the pnp circuit, and include in the README writeup.
-4. Make a non-aided drawing for the pnp curcuit and embed in the README.
+##### 3. Drive counter with micro:bit
 
-![alt text](images/soil-sensor-kit.jpg "Soil Sensor Kit with micro:bit Breakout and Breadboard")
-_**Note:** The soil sensor comes pre-wired, so no soldering is required._
+1. **TODO** Check if micro:bit PWM levels are correct
+2. **TODO** Check micro:bit PWM frequency and timing of D flip-flop
+3. **TODO** If impossible or impractical, can digital write be used to generate the clock train?
+4. Drive the counter master clock signal with a PWM pulse from the micro:bit...
 
-![alt text](images/soil-sensor-schematic.jpg "Soil Sensor Schematic")
+##### 4. Counter output readoff
 
-##### 3. Soil sensor
+1. **TODO** Check the operating voltage of the D flip-flop: can they run at 3.3V?
+2. Use digital read to read off the binary counter number and display on the micro:bit LED matrix...
 
-###### Introduction
+##### 5. (BONUS) Build a flip-flop
 
-The soil moisture sensor is a transistor-based device to measure the moisture of soil based on the resistance between two prongs. The more water in the soil, the less resistance. The sensor has 3 wires for **V<sub>cc</sub>**, **GND**, and **SIG** (for SIGnal). The high voltage and ground have to be supplied by the operating circuit. **V<sub>cc</sub>** is supplied using the micro:bit [`digitalPinWrite`](https://makecode.microbit.org/reference/pins/digital-write-pin) function. **GND** is supplied by the micro:bit **GND** pin. **SIG** is read using the micro:bit [`analogReadPin`](https://makecode.microbit.org/reference/pins/analog-read-pin). _It is up to you to configure the pins correctly so that you don't disable or interfere with the micro:bit 25 LED matrix._ Skim read the [soil sensor hookup guide](https://learn.sparkfun.com/tutorials/soil-moisture-sensor-hookup-guide) to familiarize yourself with the device.
-
-###### Sensor care
-
-> 1. **Do not hook up the VCC on the sensor to a constant 3.3V or leave the digital pin to 1 when you are not taking a reading. This degrades the sensor quickly!**
-> 2. **Do not immerse the whole sensor in water!**
-
-###### Requirements
-
-1. Based on your understanding of the operation of transistors from the previous sections, look at the schematic of the soil sensor circuit and describe its operation in the README.
-2. How will you measure the _resistance_ of full-soaked soil? Give an explanation, take and embed an image of your setup, and record in the README your measured values for _fully dry soil_ R<sub>DRY</sub>, _somewhat wet soil_ R<sub>WET</sub>, and _fully soaked soil_ R<sub>SOAK</sub>.
-3. How will you measure the _base voltage_ V<sub>B</sub> of the sensor transistor? Give an explanation, take and embed an image of your setup, and record in the README your measured values for _fully dry soil_ V<sub>B<sub>DRY</sub></sub>, _somewhat wet soil_ V<sub>B<sub>WET</sub></sub>, and _fully soaked soil_ V<sub>B<sub>SOAK</sub></sub>.
-4. Keeping at least one analog output pin, open a digital input pin and hook it up to a TTL input button on the workstation. Light the external LED when you detect a 1 on the input button (that is, the button is _pressed_). _Note: Do you need an external or internal [pullup resistor](https://www.google.com/search?q=pullup+pulldown+resistor&oq=pullup+pull)?_ Commit the JavaScript file to your assignment repository, calling it `digital-in.js`. Build the circuit and take a short video of its operation. Do a short writeup in [README.md](README.md) and include a link to the video. (UPDATE: This is incorrect. TTL switches are 5V when on, which is too high for the micro:bit, which operates at 3.3V. See the [asst 5 errata](asst5-errata.md#item-34) for details.)
-5. Hook up the soil moisture sensor. There are three wires coming out: VCC, GND, and SIG. Pick a GPIO pin, configure it as digital output, and wire VCC to it. Pick a GPIO pin, configure it as analog in, and wire SIG to it. GND whould be wired to ground on the micro:bit.
-6. Write a program that:
-   1. Reads the sensor input in a loop with pauses to get the reading.
-   2. It only powers the sensor when it takes a reading, by writing a 1 and then a 0 to the digital output pin. 
-   3. Maps the range of input values of the sensor (you need to measure them yourself) to the range 0-4. Use the [`map`](https://makecode.microbit.org/reference/pins/map) function. This is called _calibration_ of the sensor. For the minimum value, take a reading with a dry sensor not touching anything; for the maximum value, take a reading with the sensor prongs dipped in shallow water. **Do not immerse the whole sensor in water!**
-   4. When it takes a sensor reading, it lights up as many rows of the LED matrix as correspond to the rescaled magnitude of the reading.
-7. Commit the JavaScript file to your assignment repository, calling it `manual-calibration.js`. Build the circuit and take a short video of its operation. Do a short writeup in [README.md](README.md) and include a link to the video.
-
-##### 4. Automatic calibration
-   
-1. Write a program that does the calibration programmatically:
-   1. When the program starts, it prompts the user to take three readings of the low and three readings of the high values of the range. It starts by showing the South icon image to prompt the user to take a low value, and records it. Then, it shows the North icon image to prompt the user to take a high value, and records it. It repeats this two more times, for a total of 3 readings for each.
-   2. It takes the average of the low values and sets the range minimum to that value. It does the same for the range maximum.
-   3. It performs the mapping, exits the calibration subprogram, scrolls "Calibration success" once, and starts normal operation described in the previous task.
-2. Commit the JavaScript file to your assignment repository, calling it `auto-calibration.js`. Build the circuit and take a short video of its operation. Do a short writeup in [README.md](README.md) and include a link to the video.   
-
-##### 5. Project extensions
-
-1. **(BONUS)** Modify your soil sensor circuit and measurement and calibration program to show the moisture level on 5 external LEDs of different colors. _It's up to you how you order them, as long as you have a good explanation for the order._ As with the other sections, do a short writeup and embed a demo video of your circuit operating in the README.
-2. **(BONUS)** Modify your soil sensor circuit and measurement and calibration program to show the moisture level on 2 external LEDs of different colors. Specifically, you should use 4 levels of brightness on the _yellow_ LED, employing the microbit PWM functions [`servoWritePin`](https://makecode.microbit.org/reference/pins/servo-write-pin) and [`servoSetPulse`](https://makecode.microbit.org/reference/pins/servo-set-pulse), and the highest moisture level on the green LED of high brightness. _It's up to you to chose the right function and calibrate the pulse widths to show 4 levels._ As with the other sections, do a short writeup and embed a demo video of your circuit operating in the README.
+1. Build a flip-flop out of transistors, resistors, and capacitors...
 
 
 ## Resources
@@ -106,6 +59,11 @@ The soil moisture sensor is a transistor-based device to measure the moisture of
 5. Video of [semiconductor operation](https://www.youtube.com/watch?v=33vbFFFn04k) by Ben Eater.
 6. Video of [transistor operation](https://www.youtube.com/watch?v=DXvAlwMAxiA) by Ben Eater.
 7. Video of [MOSFET operation](https://www.youtube.com/watch?v=stM8dgcY1CA)
+
+### Flip-flops
+1. Very in-depth yet accessible Wikipedia article on [flip-flops](https://en.wikipedia.org/wiki/Flip-flop_(electronics).
+**TODO** Operation videos
+
 
 #### Datasheets
 
@@ -135,8 +93,5 @@ The soil moisture sensor is a transistor-based device to measure the moisture of
    2. The full documentation and reference is under _Handbook_. Bear in mind that you are drinking from the hose. Don't be surprised if not everything is presented in a strictly incremental manner.
 4. In-browser TypeScript [playground](https://www.typescriptlang.org/play/index.html). Note that micro:bit specific code will not run, but you can still play. _Start making the distinction between a generic multi-purpose programming language (TypeScript) and functionality (packages, libraries, objects, etc.) that is specific to a particular device (micro:bit), though written in the same programming language._
 5. A pretty good and very palatable JS tutorial with in-browser coding, by [Codecademy](https://www.codecademy.com/learn/introduction-to-javascript).
-
 6. Extensive and detailed [JS tutorial](https://javascript.info/), with some advanced material thrown in. **I like this one!**
-
 7. The most authoritative JS resource on the Web, including tutorials and reference, by [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-
