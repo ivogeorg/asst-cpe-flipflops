@@ -1,10 +1,10 @@
 # CPE 1040 - Spring 2020
 
-## Assignment 5: Transistors
+## Assignment 6: Flip-flops
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-02-22  
-Code: 98ffb5e9c5964e27028001933faec10caa0e4709  
+Last updated: 2020-03-04  
+Code: 
 
 ---
 
