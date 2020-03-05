@@ -16,7 +16,16 @@ This assignment introduces flip-flops, how they are built, and what circuits can
 
 ##### 1. Capacitors
 
-1. Simple charge-discharge capacitor circuit (as warm up for D flip-flop operation)...
+Capacitors are important cicruit elements which hold charge. They are represented as two plates with terminals as shown below:
+```
+    |
+---------
+---------
+    |
+```
+When voltage is applied to the two terminals, charge accumulates until the voltage between the plates (and terminals) of the capacitor equals the applied voltage.
+
+1. This part lets you see how a capacitor operates. Build the circuit below
 
 ##### 2. Modulus counters
 
@@ -60,15 +69,18 @@ This assignment introduces flip-flops, how they are built, and what circuits can
 6. Video of [transistor operation](https://www.youtube.com/watch?v=DXvAlwMAxiA) by Ben Eater.
 7. Video of [MOSFET operation](https://www.youtube.com/watch?v=stM8dgcY1CA)
 
-### Flip-flops
-1. Very in-depth yet accessible Wikipedia article on [flip-flops](https://en.wikipedia.org/wiki/Flip-flop_(electronics).
-**TODO** Operation videos
-
-
-#### Datasheets
+#### Transistor datasheets
 
 1. NPN transistor [2N3904 datasheet](https://www.sparkfun.com/datasheets/Components/2N3904.pdf)
 2. PNP Transistor [2N3906 datasheet](https://www.sparkfun.com/datasheets/Components/2N3906.pdf)
+
+### Flip-flops
+1. Very in-depth yet accessible Wikipedia article on [flip-flops](https://en.wikipedia.org/wiki/Flip-flop_(electronics)
+2. Video of [flip-flop circuit build & operation](https://www.youtube.com/watch?v=IykOrxVcdyg)
+
+#### Flip-flop datasheets
+
+1. D-type flip-flop [74LS74](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf)
 
 ### Sensors
 
