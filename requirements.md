@@ -20,12 +20,22 @@ Capacitors are important cicruit elements which hold charge. They are represente
 ```
     |
 ---------
----------
+---------   A capacitor has two plates across which there is voltage
     |
 ```
-When voltage is applied to the two terminals, charge accumulates until the voltage between the plates (and terminals) of the capacitor equals the applied voltage.
+When voltage is applied to the two terminals, charge accumulates until the voltage between the plates (and terminals) of the capacitor equals the applied voltage. If the voltage is removed and there is a circuit connection between the two terminals, current flows from the terminal with the higher voltage toward the terminal with the lower voltage. Eventually, the current dissipates the accumulated charge and the voltage across the plates drops to zero.
 
-1. This part lets you see how a capacitor operates. Build the circuit below
+1. This part lets you see how a capacitor operates. Build the circuit below:
+
+![alt text](images/capacitor-charging.jpg)
+
+2. Make sure the capacitor starts out discharged. _Hint: Connect the two terminals with a resistor._
+3. Attach the multimeter in voltage mode at the point V<sub>C</sub> or in current mode anywhere in the circuit. Apply the voltage and watch the reading. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it gets charged, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V.
+4. Now take the capacitor out of the circuit, making sure you don't touch the terminals to each other or connect them through a circuit, and plug it into the second circuit below:
+
+![alt text](images/capacitor-discharging.jpg)
+
+5. Watch the LED light up then fade quickly to dark as the capacitor discharges through the circuit.
 
 ##### 2. Modulus counters
 
