@@ -3,14 +3,16 @@
 ## Assignment 6: Flip-flops
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-03-04
+Last updated: 2020-03-07
 Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc      
 
 This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 ### Overview
 
-This assignment introduces flip-flops, how they are built, and what circuits can be built from them. Flip-flops (aka latches) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. _Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
+This assignment introduces flip-flops, how they are built, and what circuits can be built from them. Flip-flops (aka latches) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. The goal of this assignment is to create a _modulus counter_ out of D-type flip-flops, drive it from the micro:bit and read off the 3-bit binary output with the micro:bit. _Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
+
+![alt text](images/CPE-Asst6-Modulo-Ctr.jpg)
 
 #### Requirements
 
@@ -25,6 +27,8 @@ Capacitors are important cicruit elements which hold charge. They are represente
 ```
 When voltage is applied to the two terminals, charge accumulates until the voltage between the plates (and terminals) of the capacitor equals the applied voltage. If the voltage is removed and there is a circuit connection between the two terminals, current flows from the terminal with the higher voltage toward the terminal with the lower voltage. Eventually, the current dissipates the accumulated charge and the voltage across the plates drops to zero.
 
+Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=IykOrxVcdyg), so the purpose of this section is to give you intuition about their function it its operation.
+
 1. This part lets you see how a capacitor operates. Build the circuit below:
 
 ![alt text](images/capacitor-charging.jpg)
@@ -37,24 +41,44 @@ When voltage is applied to the two terminals, charge accumulates until the volta
 
 5. Watch the LED light up then fade quickly to dark as the capacitor discharges through the circuit.
 
-##### 2. Modulus counters
+##### 2. D-type flip-flop
 
-1. **TODO** Pick D flip-flops
-2. Build a modulus counter from D flip-flops...
+1. Operation of one D-type flip-flop... (Logic input, logic output, clock with function generator, visualize with 2 channels of oscilloscope.)
 
-##### 3. Drive counter with micro:bit
+##### 3. 3-bit modulus counter
+
+1. Build a 3-bit modulus counter from 3 D-type flip-flops (2 74LS74 chips)...
+
+##### 4. Logic level converter
+
+1. Measure the voltages on both sides of the logic-level converter...
+
+##### 5. Drive counter with micro:bit
 
 1. **TODO** Check if micro:bit PWM levels are correct
 2. **TODO** Check micro:bit PWM frequency and timing of D flip-flop
 3. **TODO** If impossible or impractical, can digital write be used to generate the clock train?
 4. Drive the counter master clock signal with a PWM pulse from the micro:bit...
 
-##### 4. Counter output readoff
+##### 6. Display counter output on micro:bit LEDs
 
 1. **TODO** Check the operating voltage of the D flip-flop: can they run at 3.3V?
 2. Use digital read to read off the binary counter number and display on the micro:bit LED matrix...
 
-##### 5. (BONUS) Build a flip-flop
+##### 7. Flip-flop control signals
+
+1. Demo what happens when control signals are used (note _active low_).
+
+##### 8. Logic gates
+
+1. Demo how logic gates work (logic input, logic output)...
+2. Combinatorial circuits...
+
+##### 9. Modulo-5 counter
+
+1. Build a _combinatorial_ circuit to drive one of the control signals to get a mod-5 counter...
+
+##### 10. (BONUS) Build a flip-flop
 
 1. Build a flip-flop out of transistors, resistors, and capacitors...
 
