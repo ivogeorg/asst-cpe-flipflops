@@ -3,16 +3,18 @@
 ## Assignment 6: Flip-flops
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-03-07
+Last updated: 2020-03-07   
 Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc      
 
 This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 ### Overview
 
-This assignment introduces flip-flops, how they are built, and what circuits can be built from them. Flip-flops (aka latches) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. The goal of this assignment is to create a _modulus counter_ out of D-type flip-flops, drive it from the micro:bit and read off the 3-bit binary output with the micro:bit. _Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
+This assignment introduces _flip-flops_, how they are built, and what circuits can be built from them. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image below. 
 
 ![alt text](images/CPE-Asst6-Modulo-Ctr.jpg)
+
+_Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
 
 #### Requirements
 
