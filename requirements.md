@@ -92,7 +92,7 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
    5. Do the same for the second, and then the third flip-flop. _Note: Notice that the clock input of a flip-flop other than the first one comes from the output Q of the previous one._
    6. Take a picture of your resulting table and embed it in a description of the circuit operation in your README.
 2. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget the chip notches and to power and ground each chip._
-3. Use the same clock signal from the previous [section](#requirements-2).
+3. Use the same clock signal from the previous [section](#requirements-1).
 4. Disconnect the **1Q** input from the input switch. Instead, connect the 3 _clear_ signals **1/CLR**, **2/CLR**, and **3/CLR** together to the same switch and turn the switch on (red). We'll call this the _clear switch_.
 5. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These is the **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
 6. Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_
@@ -107,7 +107,7 @@ The micro:bit works at 3.3V while the workstation works at 5V. This means that a
 2. Hook up a workstation TTL switch on the _high side_ and, while togling it, measure the voltage on the _low side_ with the multimeter.
 3. Now connect the _low side_ pin to an digital input pin of the micro:bit. Drive an external LED with another pin, as in [Assigment 5](https://github.com/ivogeorg/asst-cpe-transistors/blob/master/requirements.md#requirements-1). Record a very short video to show your circuit operating and link to it in your README.
 4. Hook up a ditigal output pin from the micro:bit to the _low side_ and measure the voltage on the _high side_ with the multimeter.
-5. Now hook up the corresponding _high side_ pin to one TTL output LEDs as the [previous section](#3-bit-modulus-counter). Record a very short video to show your circuit operating and link to it in your README.
+5. Now hook up the corresponding _high side_ pin to one TTL output LEDs as the [previous section](#3-3-bit-modulus-counter). Record a very short video to show your circuit operating and link to it in your README.
 
 ##### 5. Drive counter with micro:bit
 
