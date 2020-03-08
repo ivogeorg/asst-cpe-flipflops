@@ -111,19 +111,28 @@ The micro:bit works at 3.3V while the workstation works at 5V. This means that a
 
 ##### 5. Drive counter with micro:bit
 
-1. **TODO** Check if micro:bit PWM levels are correct
-2. **TODO** Check micro:bit PWM frequency and timing of D flip-flop
-3. **TODO** If impossible or impractical, can digital write be used to generate the clock train?
-4. Drive the counter master clock signal with a PWM pulse from the micro:bit...
+1. Write a program to drive the counter master clock signal with a programmable frequency. Here is a simple program to get you started:
+```TypeScript
+basic.forever(function () {
+	pins.digitalWritePin(DigitalPin.P12, 1)
+    basic.pause(200)
+    pins.digitalWritePin(DigitalPin.P12, 0)
+    basic.pause(200)
+})
+```
+2. Hook up pin 12 _through the logic level converter_ (from **3.3V** to **5V**) to the **1CLK** pin of your counter on the workstation breadboard. 
+3. Record a video of the micro:bit driving the counter and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
+4. Modify the program to double the frequency (halve the pause time) on the press of button A and to halve the frequency (double the pause time) on the press of button B.
+5. Record a video of the micro:bit driving the counter at different frequencies and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
 
 ##### 6. Display counter output on micro:bit LEDs
 
-1. **TODO** Check the operating voltage of the D flip-flop: can they run at 3.3V?
-2. Use digital read to read off the binary counter number and display on the micro:bit LED matrix...
+1. Use digital read to read off the binary counter number and display on the micro:bit LED matrix...
 
 ##### 7. (BONUS) Flip-flop control signals
 
-1. Demo what happens when control signals are used (note _active low_).
+1. Use a second converter to drive the control signal.
+2. Demo what happens when control signals are used (note _active low_).
 
 ##### 8. (BONUS) Logic gates
 
