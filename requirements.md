@@ -114,7 +114,7 @@ The micro:bit works at 3.3V while the workstation works at 5V. This means that a
 1. Write a program to drive the counter master clock signal with a programmable frequency. Here is a simple program to get you started:
 ```TypeScript
 basic.forever(function () {
-	pins.digitalWritePin(DigitalPin.P12, 1)
+    pins.digitalWritePin(DigitalPin.P12, 1)
     basic.pause(200)
     pins.digitalWritePin(DigitalPin.P12, 0)
     basic.pause(200)
@@ -127,7 +127,25 @@ basic.forever(function () {
 
 ##### 6. Display counter output on micro:bit LEDs
 
-1. Use digital read to read off the binary counter number and display on the micro:bit LED matrix...
+1. Use 3 digital read pins to read off the binary counter number and display on the micro:bit LED matrix:
+   1. Hook up the three **Q** outputs _through the logic level converter_ (from **5V** to **3.3V**) to the 3 chosen micro:bit pins. _Note: You may disconnect them from the TTL output LEDs._
+   2. Remember that the counter updates at every _positive edge_ of the clock. So, your program should check the values of the 3 digital read bits _between_ the clock pin writing 1 and writing 0:
+   ```TypeScript
+   basic.forever(function () {
+       pins.digitalWritePin(DigitalPin.P12, 1)
+       basic.pause(200)   // This will have to be reduced, and will mess the variable frequency
+       let b0 = pins.digitalReadPin(DigitalPin.P0)
+       let b1 = pins.digitalReadPin(DigitalPin.P1)
+       let b2 = pins.digitalReadPin(DigitalPin.P2)
+       // more code...
+       pins.digitalWritePin(DigitalPin.P12, 0)
+       basic.pause(200)
+   })
+   ```
+   3. Remember what a _positional numeral system_ is and convert the bit pattern **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** from binaty to decimal. _Hint: Sum of powers._
+   4. Show this number on the micro:bit LED matrix.
+2. Record a video showing the micro:bit driving the counter and showing the count on the LEDs, and link to it in your README. _Note: At this point, your circuit should look like the picture at the top._
+3. **(BONUS)** The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. Try to ameliorate this effect, by either experimenting with shorter pauses or by more sophisticated means. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-micro-bit). Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
 ##### 7. (BONUS) Flip-flop control signals
 
