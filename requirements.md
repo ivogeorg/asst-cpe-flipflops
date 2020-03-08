@@ -35,7 +35,7 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 
 ![alt text](images/capacitor-charging.jpg)
 
-2. Make sure the capacitor starts out discharged. _Hint: Connect the two terminals with a resistor._
+2. Make sure the capacitor starts out _discharged_. _Hint: Connect the two terminals with a resistor._
 3. Attach the multimeter in voltage mode at the point V<sub>C</sub> or in current mode anywhere in the circuit. Apply the voltage and watch the reading. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it gets charged, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V.
 4. Now take the capacitor out of the circuit, making sure you don't touch the terminals to each other or connect them through a circuit, and plug it into the second circuit below:
 
@@ -45,7 +45,40 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 
 ##### 2. D-type flip-flop
 
-1. Operation of one D-type flip-flop... (Logic input, logic output, clock with function generator, visualize with 2 channels of oscilloscope.)
+###### Notes on reading the datasheet
+
+1. Our lab has 74LS74 chips, each containing two D-type positive-edge triggered flip-flops.
+2. Only the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf) is necessary for this project.
+3. Our chip has the _form factor_ and _pinout_ at the top right.
+4. The _logic symbol_ at the bottom left shows _inputs on the left_ and _outputs on the right_.
+5. The operation is layed out in two ways:
+   1. The _description_ does it in words. _In summary, the device transfers its input value at D onto its output Q (and inverted output /Q) only upon a positive edge of the "clock" input._
+   2. The _function table_ does it symbolically, but is equivalent to the description. _Note that an X represent "don't care" inputs, that is, it doesn't matter what their value is; and an upward arrow means a positive edge. See the diagram below for what a positive edge is._
+   ```
+   5V       |------|      |------
+            |      |      |          this is a "square" wave, which is typical of clock (CLK) signals in electronics
+   0V ------|      |------|
+   
+         ^  this is the positive edge, where the voltage rises from logic LOW (0V) to logic HIGH (5V)
+   ```
+
+###### Requirements
+
+1. Place a 74LS74 chip in the middle of a breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath._
+2. Using the pinout of the chip, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
+3. Use the _function generator_ on the workstation to generate the clock signal for the _top_ flip-flop:
+   1. Set the wave form to **SQUARE**. _Make sure the high voltage is 5V._
+   2. Choose a very low frequency, say a _fraction of a Hz_. _You will want to vary the frequency with the nob at the top left of the workstation._
+   3. Connect the **OUT** column from the generator to your **1CLK** input.
+4. Connect a TTL logic switch to the **1D** input.
+5. Connect the **1Q** and **1/Q** to two TTL logic LEDs (top right). _The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._
+6. Connect **1/CLR** and **1/PRE** to logic high (5V).
+7. With a very low clock frequency, toggle the input switch and watch the output LEDs. At low frequency, you will see a lag.
+8. Increase the frequency to see that the lag stops being dinstinguishable.
+9. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
+10. Take a picture of your setup and include it in your README.
+11. With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.
+12. Take a picture of the oscilloscope window and include in your README.
 
 ##### 3. 3-bit modulus counter
 
