@@ -121,9 +121,11 @@ basic.forever(function () {
 })
 ```
 2. Hook up pin 12 _through the logic level converter_ (from **3.3V** to **5V**) to the **1CLK** pin of your counter on the workstation breadboard. 
-3. Record a video of the micro:bit driving the counter and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
-4. Modify the program to double the frequency (halve the pause time) on the press of button A and to halve the frequency (double the pause time) on the press of button B.
-5. Record a video of the micro:bit driving the counter at different frequencies and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
+3. Commit to your repository as file `clk.js`.
+4. Record a video of the micro:bit driving the counter and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
+5. Modify the program to double the frequency (halve the pause time) on the press of button A and to halve the frequency (double the pause time) on the press of button B.
+6. Commit to your repository as file `clk-variable.js`.
+7. Record a video of the micro:bit driving the counter at different frequencies and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
 
 ##### 6. Display counter output on micro:bit LEDs
 
@@ -144,27 +146,37 @@ basic.forever(function () {
    ```
    3. Remember what a _positional numeral system_ is and convert the bit pattern **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** from binaty to decimal. _Hint: Sum of powers._
    4. Show this number on the micro:bit LED matrix.
-2. Record a video showing the micro:bit driving the counter and showing the count on the LEDs, and link to it in your README. _Note: At this point, your circuit should look like the picture at the top._
-3. **(BONUS)** The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. Try to ameliorate this effect, by either experimenting with shorter pauses or by more sophisticated means. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-micro-bit). Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
+2. Commit to your repository as file `clk-led.js`.
+3. Record a video showing the micro:bit driving the counter and showing the count on the LEDs, and link to it in your README. _Note: At this point, your circuit should look like the picture at the top._
+4. **(BONUS)** The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. Try to ameliorate this effect, by either experimenting with shorter pauses or by more sophisticated means. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-microbit). 
+5. _(cont'd)_ Commit to your repository as file `clk-led-no-skew.js`.
+6. _(cont'd)_ Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
 ##### 7. (BONUS) Flip-flop control signals
 
-1. Use a second converter to drive the control signal.
-2. Demo what happens when control signals are used (note _active low_).
+1. Use a second converter to drive the control signal **X/CLR**.
+2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
+3. Commit to your repository as file `clk-led-clr.js'.
+4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in README.
 
-##### 8. (BONUS) Logic gates
+##### 8. (BONUS) Modulo-5 counter
 
-1. Demo how logic gates work (logic input, logic output)...
-2. Combinatorial circuits...
+1. Build a [_combinatorial circuit_](https://www.electronics-tutorials.ws/combination/comb_1.html) out of [_logic gate_](https://en.wikipedia.org/wiki/Logic_gate) [ICs](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits) (AND, OR, NOT, etc.) to drive one of the control signals to get a mod-5 counter:
+   1. Design the signal necessary to force the counter to cycle back to `000` before it reaches `101`.
+   2. Ask staff for the logic gates you need.
+   3. Build the circuit. _Note: Don't forget to power and ground the ICs._
+2. Record a video showing mod-5 counting and link in README.
+3. Now disconnect the combinatorial circuit and modify your program do the same thing with the control signal that comes from the micro:bit.
+4. Commit to your repository as file `mod-5-clr.js`.
+5. Record a video showing mod-5 counter without external logic gates, and link to README with an explanation of your code.
 
-##### 9. (BONUS) Modulo-5 counter
+##### 9. (BONUS) Build a flip-flop
 
-1. Build a _combinatorial_ circuit to drive one of the control signals to get a mod-5 counter...
-
-##### 10. (BONUS) Build a flip-flop
-
-1. Build a flip-flop out of transistors, resistors, and capacitors...
-
+1. Build a flip-flop out of transistors, resistors, and capacitors, following this [video](https://www.youtube.com/watch?v=IykOrxVcdyg).
+2. Show the operation in your README as follows:
+   1. Draw a circuit diagram, indicating the values for all elements, and take an image.
+   2. Describe your experience.
+   3. Record a video showing the changing of states.
 
 ## Resources
 
