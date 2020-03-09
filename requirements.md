@@ -36,12 +36,12 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 ![alt text](images/capacitor-charging.jpg "Capacitor charging circuit")
 
 2. Make sure the capacitor starts out _discharged_. _Hint: Connect the two terminals with a resistor._
-3. Attach the multimeter, in voltage mode, at the point V<sub>C</sub> or in current mode anywhere in the circuit. Apply the voltage and watch the reading. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it gets charged, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V.
+3. Attach the multimeter, in voltage mode, at the point V<sub>C</sub> or, in current mode, anywhere in the circuit. Apply the circuit voltage source and watch the reading of the multimeter. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it _charges_, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V. _Why?_
 4. Now take the capacitor out of the circuit, making sure you don't touch the terminals to each other or connect them through a circuit, and plug it into the second circuit below:
 
 ![alt text](images/capacitor-discharging.jpg "Capacitor discharging circuit")
 
-5. Watch the LED light up then fade quickly to dark as the capacitor discharges through the circuit.
+5. Watch the LED light up then quickly fade to dark as the capacitor discharges through the circuit.
 
 ##### 2. D-type flip-flop
 
@@ -83,6 +83,7 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 ##### 3. 3-bit modulus counter
 
 ![alt text](images/3-bit-mod-ctr.jpg "3-bit modulus counter")
+_Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represented in a diagram with its non-negated name and a circle ° at the terminal, as it is done in this diagram. The circle comes from the shortened representation of an **inverter**._
 
 1. Reason and explain how this circuit works:
    1. On a sheet of paper with a checkerboard pattern, pick 4 lines at 4 rows from each other. Label at the left, from top to bottom, **CLK**, **1Q**, **2Q**, **3Q**.
@@ -90,11 +91,14 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
    3. Now trace the **CLK** square wave for 8 periods, up-down-up-down-...
    4. Study the first (leftmost, closest to the clock) flip-flop and calculate what the **1Q** output (aka **b<sub>0</sub>**) will trace, if driven by the clock you just traced. _Hint: Remember that the Q output changes to the value of D **only** on a positive edge of the clock signal._
    5. Do the same for the second, and then the third flip-flop. _Note: Notice that the clock input of a flip-flop other than the first one comes from the output Q of the previous one._
-   6. Take a picture of your resulting table and embed it in a description of the circuit operation in your README.
-2. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget the chip notches and to power and ground each chip._
+   6. Take a picture of your resulting diagram and embed it in a description of the circuit operation in your README.
+
+![alt text](images/timing-diagram.jpg "Timing diagram of a digital circuit")
+
+2. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget to place the chips with notches pointing up, and to power and ground each chip._
 3. Use the same clock signal from the previous [section](#requirements-1).
-4. Disconnect the **1Q** input from the input switch. Instead, connect the 3 _clear_ signals **1/CLR**, **2/CLR**, and **3/CLR** together to the same switch and turn the switch on (red). We'll call this the _clear switch_.
-5. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These is the **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
+4. Disconnect the **1Q** input from the input switch. Instead, connect the 3 _clear_ signals **1/CLR**, **2/CLR**, and **3/CLR** together to the same switch and turn the switch on (red light). We'll call this the _clear switch_.
+5. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These represent a **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
 6. Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_
 7. Record a video of your setup and the output LEDs counting and link to it in your README. _Note: Tune the frequency so as to minimize the video length but the individual numbers can still be seen._
 8. **(BONUS)** Connect the clock and the 3 bit outputs to the 4 channels of the oscilloscope and record the counting in a video or image. Link to or embed in your README.
