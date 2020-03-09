@@ -36,7 +36,7 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 ![alt text](images/capacitor-charging.jpg "Capacitor charging circuit")
 
 2. Make sure the capacitor starts out _discharged_. _Hint: Connect the two terminals with a resistor._
-3. Attach the multimeter in voltage mode at the point V<sub>C</sub> or in current mode anywhere in the circuit. Apply the voltage and watch the reading. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it gets charged, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V.
+3. Attach the multimeter, in voltage mode, at the point V<sub>C</sub> or in current mode anywhere in the circuit. Apply the voltage and watch the reading. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it gets charged, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V.
 4. Now take the capacitor out of the circuit, making sure you don't touch the terminals to each other or connect them through a circuit, and plug it into the second circuit below:
 
 ![alt text](images/capacitor-discharging.jpg "Capacitor discharging circuit")
