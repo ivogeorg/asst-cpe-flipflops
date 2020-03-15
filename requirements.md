@@ -8,6 +8,16 @@ Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc
 
 This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
+**TODO:**
+1. No workstation, so no buttons or logic output LEDs. Adapt to use the micro:bit button and LEDs.
+2. Include video and/or guide for using handheld multimeters.
+3. Include lab-kit contents, user guide, and safety of operation.
+4. Add note that 74LS00 chips require 5V.
+5. Square wave gen in micro:bit in separate `forever` loop. A note on _threads and fibers_. Link to [Reactive](https://makecode.microbit.org/device/reactive).
+6. Previously bonus parts are now required.
+7. Remove challenge to build a flip-flop.
+8. Note that at most 4 lines can be voltage converted.
+
 ### Overview
 
 This assignment introduces _flip-flops_, how they are built, and what circuits can be built from them. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image below. 
