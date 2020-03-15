@@ -3,12 +3,12 @@
 ## Assignment 6: Flip-flops
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-03-07   
+Last updated: 2020-03-15   
 Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc      
 
 This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
-**TODO:**
+**Conversion to Take-Home TODOs:**
 1. No workstation, so no buttons or logic output LEDs. Adapt to use the micro:bit button and LEDs.
 2. Include video and/or guide for using handheld multimeters.
 3. Include lab-kit contents, user guide, and safety of operation.
@@ -18,6 +18,7 @@ This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to 
 7. Remove challenge to build a flip-flop.
 8. Note that at most 4 lines can be voltage converted.
 9. Explain both voltage converter devices.
+10. Build the final circuit, check the constraints with translation pins, and update the "front-page" picture.
 
 ### Overview
 
