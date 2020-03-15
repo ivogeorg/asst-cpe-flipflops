@@ -17,6 +17,7 @@ This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to 
 6. Previously bonus parts are now required.
 7. Remove challenge to build a flip-flop.
 8. Note that at most 4 lines can be voltage converted.
+9. Explain both voltage converter devices.
 
 ### Overview
 
