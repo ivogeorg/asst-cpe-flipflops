@@ -13,12 +13,20 @@ This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to 
 2. Include video and/or guide for using handheld multimeters.
 3. Include lab-kit contents, user guide, and safety of operation.
 4. Add note that 74LS00 chips require 5V.
-5. Square wave gen in micro:bit in separate `forever` loop. A note on _threads and fibers_. Link to [Reactive](https://makecode.microbit.org/device/reactive).
-6. Previously bonus parts are now required.
-7. Remove challenge to build a flip-flop.
+5. Square wave gen in micro:bit:
+   1. In separate `forever` loop. A note on _threads and fibers_. Link to [Reactive](https://makecode.microbit.org/device/reactive).
+   2. Test the following functions: 
+      1. [`analogSetPeriod`](https://makecode.microbit.org/reference/pins/analog-set-period),
+      2. [`onPulsed`](https://makecode.microbit.org/reference/pins/on-pulsed),
+      3. [`analogSetPitchPin`](https://makecode.microbit.org/reference/pins/analog-set-pitch-pin),
+      4. [`analogPitch`](https://makecode.microbit.org/reference/pins/analog-pitch)
+   3. Discover and show all the pin simulation functions of the MakeCode environment.
+6. ~Convert previously bonus parts to required.~
+7. ~Remove challenge to build a flip-flop.~
 8. Note that at most 4 lines can be voltage converted.
 9. Explain both voltage converter devices.
 10. Build the final circuit, check the constraints with translation pins, and update the "front-page" picture.
+11. Remove lab oscilloscope parts and maybe explore the [microbit as an oscilloscope project](http://www.elektronik-labor.de/Microbit/Microbit9.html).
 
 ### Overview
 
@@ -113,9 +121,14 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 5. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These represent a **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
 6. Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_
 7. Record a video of your setup and the output LEDs counting and link to it in your README. _Note: Tune the frequency so as to minimize the video length but the individual numbers can still be seen._
-8. **(BONUS)** Connect the clock and the 3 bit outputs to the 4 channels of the oscilloscope and record the counting in a video or image. Link to or embed in your README. _What signlal should you toggle on to see what your timing diagram shows?_
+
+   **TODO:** Expand the following to establish awareness of control signals.
+   
+8. Connect the clock and the 3 bit outputs to the 4 channels of the oscilloscope and record the counting in a video or image. Link to or embed in your README. _What signlal should you toggle on to see what your timing diagram shows?_
 
 ##### 4. Logic level converter
+
+**TODO:** Show both converters as they got confused.
 
 The micro:bit works at 3.3V while the workstation works at 5V. This means that a _logic high_ in the two circuits is actually at different voltages. Logic level voltages are a [big deal](https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/), but we only need to say here that the two circuits should not be connected directly to each other (as we did in the last assignment :D). Instead, we use a [logic level converter circuit](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide) to bridge the two circuits. _Notice the diode pointing from low voltage to high voltage!_
 
@@ -164,20 +177,27 @@ basic.forever(function () {
    4. Show this number on the micro:bit LED matrix.
 2. Commit to your repository as file `clk-led.js`.
 3. Record a video showing the micro:bit driving the counter and showing the count on the LEDs, and link to it in your README. _Note: At this point, your circuit should look more or less like the picture at the top of the assignment._
-4. **(BONUS)** The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. That is, the time it spends at logic high is going to be longer than the time it spends at logic low. Try to ameliorate this effect, by either experimenting with shorter pause times or by a more sophisticated method. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-microbit). 
-5. _(cont'd)_ Commit to your repository as file `clk-led-no-skew.js`.
-6. _(cont'd)_ Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
-##### 7. (BONUS) Flip-flop control signals
+   **TODO:** Expand the following to systematically explore issues of timing.
+
+4. The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. That is, the time it spends at logic high is going to be longer than the time it spends at logic low. Try to ameliorate this effect, by either experimenting with shorter pause times or by a more sophisticated method. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-microbit). 
+5. Commit to your repository as file `clk-led-no-skew.js`.
+6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
+
+##### 7. Flip-flop control signals
+
+**TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
 
 1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
 2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
 3. Commit to your repository as file `clk-led-clr.js'.
 4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
 
-##### 8. (BONUS) Modulo-5 counter
+##### 8. Modulo-5 counter
 
-1. Build a [_combinatorial circuit_](https://www.electronics-tutorials.ws/combination/comb_1.html) out of [_logic gate_](https://en.wikipedia.org/wiki/Logic_gate) [ICs](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits) (AND, OR, NOT, etc.) to drive one of the control signals to change your circuit from a mod-8 counter to a **mod-5 counter**:
+**TODO:** Introduce combinational circuits!
+
+1. Build a [_combinational circuit_](https://www.electronics-tutorials.ws/combination/comb_1.html) out of [_logic gate_](https://en.wikipedia.org/wiki/Logic_gate) [ICs](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits) (AND, OR, NOT, etc.) to drive one of the control signals to change your circuit from a mod-8 counter to a **mod-5 counter**:
    1. Design the signal necessary to force the counter to cycle back to `000` before it reaches `101`.
    2. Ask staff for the logic gates you need. _We have a variety of [74LS00 chips](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits)._
    3. Build the circuit. _Note: Don't forget to power and ground the ICs._
@@ -185,16 +205,6 @@ basic.forever(function () {
 3. Now disconnect the combinatorial circuit and modify your program to do the same thing with the clear control signal that comes from the micro:bit.
 4. Commit to your repository as file `mod-5-clr.js`.
 5. Record a video showing mod-5 counter without external logic gates, and link to README with a brief explanation of your code.
-
-##### 9. (CHALLENGE) Build a flip-flop
-
-This is an optional challenge. It requirese very careful balancing of the circuit elements, which in turn requires both careful reading of the details in the transistor datasheet and selection of _matched_ circuit elements.
-
-1. Build a flip-flop out of transistors, resistors, and capacitors, following this [video](https://www.youtube.com/watch?v=IykOrxVcdyg).
-2. Show the operation in your README as follows:
-   1. Draw a circuit diagram, indicating the values for all elements, and take an image.
-   2. Describe your experience.
-   3. Record a video showing the changing of states.
 
 ## Resources
 
