@@ -9,21 +9,29 @@ Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc
 This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 **Conversion to Take-Home TODOs:**
+1. Turn into a lesson-n-assignment:
+   1. Divide into read-try-do sections.
+   2. Structure lesson and assignment in parallel with mininal change. 
+   3. Interleave the exposure and exploration parts. It should be a single progression.
+   4. Reference videos and materials _inline_.
+   5. Supplement with _short_ original videos.
+   6. Overview should state this format and identify prerequisites. (Link with previous.)
 1. No workstation, so no buttons or logic output LEDs. Adapt to use the micro:bit button and LEDs.
 2. Include video and/or guide for using handheld multimeters.
 3. Include lab-kit contents, user guide, and safety of operation.
 4. Add note that 74LS00 chips require 5V.
 5. Square wave gen in micro:bit:
    1. In separate `forever` loop. A note on _threads and fibers_. Link to [Reactive](https://makecode.microbit.org/device/reactive).
-   2. Test the following functions: 
+   2. Test the following functions (_Use in conjunction to test w/o oscilloscope._): 
       1. [`analogSetPeriod`](https://makecode.microbit.org/reference/pins/analog-set-period),
       2. [`onPulsed`](https://makecode.microbit.org/reference/pins/on-pulsed),
       3. [`analogSetPitchPin`](https://makecode.microbit.org/reference/pins/analog-set-pitch-pin),
       4. [`analogPitch`](https://makecode.microbit.org/reference/pins/analog-pitch)
+      5. [`pulseDuration`](https://makecode.microbit.org/reference/pins/pulse-duration)
    3. Discover and show all the pin simulation functions of the MakeCode environment.
 6. ~Convert previously bonus parts to required.~
 7. ~Remove challenge to build a flip-flop.~
-8. Note that at most 4 lines can be voltage converted.
+8. Note that at most 4 lines can be voltage converted. _The /CLR signal is active-low. If 3.3V is enough to keep it in the high state, it can be connected directly._
 9. Explain both voltage converter devices.
 10. Build the final circuit, check the constraints with translation pins, and update the "front-page" picture.
 11. Remove lab oscilloscope parts and maybe explore the [microbit as an oscilloscope project](http://www.elektronik-labor.de/Microbit/Microbit9.html).
@@ -34,7 +42,11 @@ This assignment introduces _flip-flops_, how they are built, and what circuits c
 
 ![alt text](images/CPE-Asst6-Modulo-Ctr.jpg "Final circuit for CPE 1040 Asst 6")
 
-_Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your lab notebook. Refer to the [criteria](criteria.md) for submitted assignments!_
+_Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your **lab notebook**. Refer to the [criteria](criteria.md) for submitted assignments!_
+
+#### Preparation
+
+Before plunging into the assignment, let us prepare ourselves by briefly 
 
 #### Requirements
 
@@ -238,6 +250,10 @@ basic.forever(function () {
 #### Flip-flop datasheets
 
 1. D-type flip-flop [74LS74](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf)
+
+#### Capacitors
+
+1. A short lesson and video on [how a capacitor works](https://www.build-electronic-circuits.com/how-does-a-capacitor-work/)
 
 ### Sensors
 
